@@ -1,0 +1,126 @@
+lists
+if __name__ == '__main__':
+    n = int(raw_input())
+output=[];    
+for i in range(0,n):
+    v = raw_input().split();
+    if v[0]=="print":
+       print(output)
+    elif v[0]=="insert":
+        output.insert(int(v[1]),int(v[2]))
+    elif v[0]=="remove":         
+        output.remove(int(v[1]))
+    elif v[0]=="pop":
+        output.pop();
+    elif v[0]=="append":
+        output.append(int(v[1]))
+    elif v[0]=="sort":
+        output.sort();
+    else:
+        output.reverse()   
+        
+        thickness = int(input()) #This must be an odd number
+c = 'H'
+
+#Top Cone
+for i in range(thickness):
+    print((c*i).rjust(thickness-1)+c+(c*i).ljust(thickness-1))
+
+#Top Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))
+
+#Middle Belt
+for i in range((thickness+1)//2):
+    print((c*thickness*5).center(thickness*6))    
+
+#Bottom Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))    
+
+#Bottom Cone
+for i in range(thickness):
+    print(((c*(thickness-i-1)).rjust(thickness)+c+(c*(thickness-i-1)).ljust(thickness)).rjust(thickness*6))
+
+def fun1(s):
+    for i in range(len (s)):
+        if(s[i].isalnum()):
+            return True;
+            break;
+    return False;
+def fun2(s):
+    for i in range(len (s)):
+        if(s[i].isalpha()):
+            return True;
+            break;
+    return False;
+def fun3(s):
+    for i in range(len (s)):
+        if(s[i].isdigit()):
+            return True;
+            break;
+    return False;
+def fun4(s):
+    for i in range(len (s)):
+        if(s[i].islower()):
+            return True;
+            break;
+    return False;
+def fun5(s):
+    for i in range(len (s)):
+        if(s[i].issuper()):
+            return True;
+            break;
+    return False;
+
+if __name__ == '__main__':
+    s = input()
+    
+
+N,M=map(int,input().split())
+p=[('.|.'*(2*i+1)).center(M,'-')for i in range(N//2)]
+print('\n'.join(p+['WELCOME'.center(M,'-')]+p[::-1]))
+
+
+flagalphanum=fun1(s)
+alphabetical=fun2(s)
+digits=fun3(s)
+lowercase=fun4(s)
+uppercase=fun5(s)
+print(flagalphanum)
+print(alphabetical)
+print(digits)
+print(lowercase)
+print(uppercase)
+
+import textwrap
+
+def wrap(string, max_width):
+    return textwrap.fill(string,max_width)
+
+if __name__ == '__main__':
+    string, max_width = input(), int(input())
+    result = wrap(string, max_width)
+    print(result)
+
+nested lists
+scorelist=[]
+for _ in range(int(raw_input())):
+    name = raw_input()
+    score = float(raw_input())
+    scorelist.append([name,score])
+secondhighest=sorted(set([score for name,score in scorelist]))[1]
+print('\n'.join(sorted([name for name,score in scorelist if score==secondhighest])))   
+percentage
+if __name__ == '__main__':
+    n = int(raw_input())
+    student_marks = {}
+    for _ in range(n):
+        line = raw_input().split()
+        name, scores = line[0], line[1:]
+        scores = map(float, scores)
+        student_marks[name] = scores
+    query_name = raw_input()
+    op=list(student_marks[query_name])
+    per=sum(op)/len(op)
+    print("%.2f"%per)
